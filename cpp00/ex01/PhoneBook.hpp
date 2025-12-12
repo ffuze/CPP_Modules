@@ -1,8 +1,8 @@
 #include "Contacts.hpp"
 
-class PhoneBook : public Contacts
+class PhoneBook
 {
-    public:
-        Contacts contacts[8];
-        PhoneBook(std::string name, std::string surname, std::string phone, Contacts contacts[])
-}
+	public:
+		Contacts contacts[8];
+		void replace_oldest(Contacts contacts[]);
+};
