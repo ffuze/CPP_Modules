@@ -1,5 +1,18 @@
 #include "PhoneBook.hpp"
 
+static int	get_contacts_length(PhoneBook pb)
+{
+	int	count;
+	count = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		if (pb.contacts[i].name.empty())
+			break;
+		count++;
+	}
+	return (count);
+}
+
 int main(void)
 {
 	PhoneBook phonebook;
@@ -28,10 +41,14 @@ int main(void)
 		{
 			Contacts new_contact = {};
 			std::string info;
-			int i;
-
+			int	l;
 			info = "";
-			i = 0;
+			l = get_contacts_length(phonebook);
+			if (l >= 8)
+			{
+				std::cout << "Contact list is full. Delete one contact" << std::endl;
+				continue;
+			}
 			std::cout << "ADD command selected. Insert the new details:" << std::endl;
 			std::cout << "Name: ";
 			std::cin >> info;
@@ -60,18 +77,22 @@ int main(void)
 				std::cout << "Missing value found. Stop" << std::endl;
 				continue;
 			}
-			// while (phonebook.contacts[i] != '\0')
+			phonebook.contacts[l] = new_contact;
 		}
 		else if (option == "SEARCH")
 		{
-			
+			for (int i = 1; i <= get_contacts_length(phonebook); i++)
+			{
+				std::cout << i << " | " << phonebook.contacts[i - 1].name
+							<< " | " << phonebook.contacts[i - 1].surname
+							<< " | " << phonebook.contacts[i - 1].nickname 
+							<< std::endl;
+				
+			}
 		}
 		else if (option == "EXIT")
-		{
-			std::cout << "Exiting" << std::endl;
 			break;
-		}
 		else
-			std::cout << "Incorrect option" << std::endl;
+			continue;
 	}
 }
