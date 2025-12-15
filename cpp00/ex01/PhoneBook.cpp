@@ -53,23 +53,18 @@ int main(void)
 			std::cout << "Name: ";
 			std::cin >> info;
 			new_contact.name = info;
-			std::cout << "Info 1: " << new_contact.name << std::endl;
 			std::cout << "Surname: ";
 			std::cin >> info;
 			new_contact.surname = info;
-			std::cout << "Info 2: " << info << std::endl;
 			std::cout << "Nickname: ";
 			std::cin >> info;
 			new_contact.nickname = info;
-			std::cout << "Info 3: " << info << std::endl;
 			std::cout << "Phone: ";
 			std::cin >> info;
 			new_contact.phone = info;
-			std::cout << "Info 4: " << info << std::endl;
 			std::cout << "Secret: ";
 			std::cin >> info;
 			new_contact.secret = info;
-			std::cout << "Info 5: " << info << std::endl;
 			if (new_contact.name.empty() || new_contact.surname.empty()
 			|| new_contact.nickname.empty() || new_contact.phone.empty()
 			|| new_contact.secret.empty())
@@ -81,11 +76,33 @@ int main(void)
 		}
 		else if (option == "SEARCH")
 		{
+			// DA FIXARE:
+			// -- 1 --
+			// Secret: a        a
+			// Info 5: a
+			// Please select between ADD, SEARCH and EXIT
+			// Please select between ADD, SEARCH and EXIT
+			// -- 2 --
+			// Please select between ADD, SEARCH and EXIT
+            //                      EXIT
+			// Please select between ADD, SEARCH and EXIT
+            //                ADD
 			for (int i = 1; i <= get_contacts_length(phonebook); i++)
 			{
-				std::cout << i << " | " << phonebook.contacts[i - 1].name
-							<< " | " << phonebook.contacts[i - 1].surname
-							<< " | " << phonebook.contacts[i - 1].nickname 
+				// create an opening line for the table
+				std::string name = phonebook.contacts[i - 1].name;
+				std::string surname = phonebook.contacts[i - 1].surname;
+				std::string nickname = phonebook.contacts[i - 1].nickname;
+				if (name.length() > 10)
+					name = name.substr(0, 9) + '.';
+				if (surname.length() > 10)
+					surname = surname.substr(0, 9) + '.';
+				if (nickname.length() > 10)
+					nickname = nickname.substr(0, 9) + '.';
+				std::cout << std::setw(10) << i << '|'
+							<< std::setw(10) << name << '|'
+							<< std::setw(10) << surname << '|'
+							<< std::setw(10) << nickname 
 							<< std::endl;
 				
 			}
