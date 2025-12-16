@@ -42,6 +42,7 @@ int main(void)
 			Contacts new_contact = {};
 			std::string info;
 			int	l;
+			bool not_valid = false;
 			info = "";
 			l = get_contacts_length(phonebook);
 			if (l >= 8)
@@ -52,26 +53,66 @@ int main(void)
 			std::cout << "ADD command selected. Insert the new details:" << std::endl;
 			std::cout << "Name: ";
 			std::cin >> info;
+			not_valid = false;
+			while (!not_valid)
+			{
+				if (info.find_first_of(' ') == std::string::npos)
+					not_valid = true;
+				else
+					std::cin >> info;
+			}
 			new_contact.name = info;
 			std::cout << "Surname: ";
 			std::cin >> info;
+			not_valid = false;
+			while (!not_valid)
+			{
+				if (info.find_first_of(' ') == std::string::npos)
+					not_valid = true;
+				else
+					std::cin >> info;
+			}
 			new_contact.surname = info;
 			std::cout << "Nickname: ";
 			std::cin >> info;
+			not_valid = false;
+			while (!not_valid)
+			{
+				if (info.find_first_of(' ') == std::string::npos)
+					not_valid = true;
+				else
+					std::cin >> info;
+			}
 			new_contact.nickname = info;
 			std::cout << "Phone: ";
 			std::cin >> info;
+			not_valid = false;
+			while (!not_valid)
+			{
+				if (info.find_first_of(' ') == std::string::npos)
+					not_valid = true;
+				else
+					std::cin >> info;
+			}
 			new_contact.phone = info;
 			std::cout << "Secret: ";
 			std::cin >> info;
-			new_contact.secret = info;
-			if (new_contact.name.empty() || new_contact.surname.empty()
-			|| new_contact.nickname.empty() || new_contact.phone.empty()
-			|| new_contact.secret.empty())
+			not_valid = false;
+			while (!not_valid)
 			{
-				std::cout << "Missing value found. Stop" << std::endl;
-				continue;
+				if (info.find_first_of(' ') == std::string::npos)
+					not_valid = true;
+				else
+					std::cin >> info;
 			}
+			new_contact.secret = info;
+			// if (new_contact.name.empty() || new_contact.surname.empty()
+			// || new_contact.nickname.empty() || new_contact.phone.empty()
+			// || new_contact.secret.empty())
+			// {
+			// 	std::cout << "Missing value found. Stop" << std::endl;
+			// 	continue;
+			// }
 			phonebook.contacts[l] = new_contact;
 		}
 		else if (option == "SEARCH")
