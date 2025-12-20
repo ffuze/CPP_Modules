@@ -35,99 +35,83 @@ int main(void)
 	std::cout << "User joined your channel. ";
 	while (true)
 	{
+		bool not_valid;
 		std::cout << "Please select between ADD, SEARCH and EXIT" << std::endl;
-		std::cin >> option;
+		std::getline(std::cin, option);
+		not_valid = option.empty() || option.find(' ') != std::string::npos;
+		while (not_valid)
+		{
+			std::cout << "No spaces or empty fields are allowed: ";
+			std::getline(std::cin, option);
+			not_valid = option.empty() || option.find(' ') != std::string::npos;
+		}
 		if (option == "ADD")
 		{
 			Contacts new_contact = {};
 			std::string info;
 			int	l;
-			bool not_valid = false;
 			info = "";
 			l = get_contacts_length(phonebook);
 			if (l >= 8)
 			{
-				std::cout << "Contact list is full. Delete one contact" << std::endl;
+				std::cout << "Contact list is full." << std::endl;
 				continue;
 			}
 			std::cout << "ADD command selected. Insert the new details:" << std::endl;
 			std::cout << "Name: ";
-			std::cin >> info;
-			not_valid = false;
-			while (!not_valid)
+			std::getline(std::cin, info);
+			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
+			while (not_valid)
 			{
-				if (info.find_first_of(' ') == std::string::npos)
-					not_valid = true;
-				else
-					std::cin >> info;
+				std::cout << "Name (max 3 spaces allowed and no empty field): ";
+				std::getline(std::cin, info);
+				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
 			}
 			new_contact.name = info;
 			std::cout << "Surname: ";
-			std::cin >> info;
-			not_valid = false;
-			while (!not_valid)
+			std::getline(std::cin, info);
+			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
+			while (not_valid)
 			{
-				if (info.find_first_of(' ') == std::string::npos)
-					not_valid = true;
-				else
-					std::cin >> info;
+				std::cout << "Name (max 3 spaces allowed and no empty field): ";
+				std::getline(std::cin, info);
+				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
 			}
 			new_contact.surname = info;
 			std::cout << "Nickname: ";
-			std::cin >> info;
-			not_valid = false;
-			while (!not_valid)
+			std::getline(std::cin, info);
+			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
+			while (not_valid)
 			{
-				if (info.find_first_of(' ') == std::string::npos)
-					not_valid = true;
-				else
-					std::cin >> info;
+				std::cout << "Name (max 3 spaces allowed and no empty field): ";
+				std::getline(std::cin, info);
+				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
 			}
 			new_contact.nickname = info;
 			std::cout << "Phone: ";
-			std::cin >> info;
-			not_valid = false;
-			while (!not_valid)
+			std::getline(std::cin, info);
+			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 1 || info.find("  ") != std::string::npos;
+			while (not_valid)
 			{
-				if (info.find_first_of(' ') == std::string::npos)
-					not_valid = true;
-				else
-					std::cin >> info;
+				std::cout << "Name (max 1 space allowed and no empty field): ";
+				std::getline(std::cin, info);
+				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 1 || info.find("  ") != std::string::npos;
 			}
 			new_contact.phone = info;
 			std::cout << "Secret: ";
-			std::cin >> info;
-			not_valid = false;
-			while (!not_valid)
+			std::getline(std::cin, info);
+			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 5 || info.find("  ") != std::string::npos;
+			while (not_valid)
 			{
-				if (info.find_first_of(' ') == std::string::npos)
-					not_valid = true;
-				else
-					std::cin >> info;
+				std::cout << "Secret (max 5 spaces allowed and no empty field): ";
+				std::getline(std::cin, info);
+				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 5 || info.find("  ") != std::string::npos;
 			}
 			new_contact.secret = info;
-			// if (new_contact.name.empty() || new_contact.surname.empty()
-			// || new_contact.nickname.empty() || new_contact.phone.empty()
-			// || new_contact.secret.empty())
-			// {
-			// 	std::cout << "Missing value found. Stop" << std::endl;
-			// 	continue;
-			// }
 			phonebook.contacts[l] = new_contact;
 		}
 		else if (option == "SEARCH")
 		{
-			// DA FIXARE:
-			// -- 1 --
-			// Secret: a        a
-			// Info 5: a
-			// Please select between ADD, SEARCH and EXIT
-			// Please select between ADD, SEARCH and EXIT
-			// -- 2 --
-			// Please select between ADD, SEARCH and EXIT
-            //                      EXIT
-			// Please select between ADD, SEARCH and EXIT
-            //                ADD
 			for (int i = 1; i <= get_contacts_length(phonebook); i++)
 			{
 				// create an opening line for the table
