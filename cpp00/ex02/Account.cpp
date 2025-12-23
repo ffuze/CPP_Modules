@@ -25,7 +25,7 @@ Account::Account(int initial_deposit)
 
 void Account::makeDeposit(int deposit)
 {
-
+	std::cout;
 }
 
 bool Account::makeWithdrawal(int withdrawal)
@@ -40,7 +40,7 @@ int	Account::checkAmount(void) const
 
 void Account::displayStatus(void) const
 {
-	
+
 }
 
 int	Account::getNbAccounts(void)
