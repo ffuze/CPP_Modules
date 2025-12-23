@@ -25,7 +25,7 @@ Account::Account(int initial_deposit)
 
 void Account::makeDeposit(int deposit)
 {
-	std::cout;
+	
 }
 
 bool Account::makeWithdrawal(int withdrawal)
