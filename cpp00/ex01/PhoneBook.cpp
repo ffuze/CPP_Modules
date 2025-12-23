@@ -15,12 +15,18 @@ static int	get_contacts_length(PhoneBook pb)
 
 static void	parse_input(bool& not_valid, std::string& input, std::string message, int count)
 {
-	not_valid = input.empty() || std::count(input.begin(), input.end(), ' ') > count || input.find("  ") != std::string::npos;
+	not_valid = input.empty()
+				|| input[0] == ' '
+				|| std::count(input.begin(), input.end(), ' ') > count
+				|| input.find("  ") != std::string::npos;
 	while (not_valid)
 	{
 		std::cout << message;
 		std::getline(std::cin, input);
-		not_valid = input.empty() || std::count(input.begin(), input.end(), ' ') > count || input.find("  ") != std::string::npos;
+		not_valid = input.empty()
+					|| input[0] == ' '
+					|| std::count(input.begin(), input.end(), ' ') > count
+					|| input.find("  ") != std::string::npos;
 	}
 }
 
@@ -69,7 +75,7 @@ int main(void)
 			new_contact.name = info;
 			std::cout << "Surname: ";
 			std::getline(std::cin, info);
-			parse_input(not_valid, info, "Name (max 3 spaces allowed and no empty field): ", 3);
+			parse_input(not_valid, info, "Surname (max 3 spaces allowed and no empty field): ", 3);
 			new_contact.surname = info;
 			std::cout << "Nickname: ";
 			std::getline(std::cin, info);
