@@ -13,6 +13,17 @@ static int	get_contacts_length(PhoneBook pb)
 	return (count);
 }
 
+static void	parse_input(bool& not_valid, std::string& input, std::string message, int count)
+{
+	not_valid = input.empty() || std::count(input.begin(), input.end(), ' ') > count || input.find("  ") != std::string::npos;
+	while (not_valid)
+	{
+		std::cout << message;
+		std::getline(std::cin, input);
+		not_valid = input.empty() || std::count(input.begin(), input.end(), ' ') > count || input.find("  ") != std::string::npos;
+	}
+}
+
 int main(void)
 {
 	PhoneBook phonebook;
@@ -35,16 +46,10 @@ int main(void)
 	std::cout << "User joined your channel. ";
 	while (true)
 	{
-		bool not_valid;
+		bool not_valid = false;
 		std::cout << "Please select between ADD, SEARCH and EXIT" << std::endl;
 		std::getline(std::cin, option);
-		not_valid = option.empty() || option.find(' ') != std::string::npos;
-		while (not_valid)
-		{
-			std::cout << "No spaces or empty fields are allowed: ";
-			std::getline(std::cin, option);
-			not_valid = option.empty() || option.find(' ') != std::string::npos;
-		}
+		parse_input(not_valid, option, "No spaces or empty fields are allowed: ", 0);
 		if (option == "ADD")
 		{
 			Contacts new_contact = {};
@@ -60,53 +65,23 @@ int main(void)
 			std::cout << "ADD command selected. Insert the new details:" << std::endl;
 			std::cout << "Name: ";
 			std::getline(std::cin, info);
-			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
-			while (not_valid)
-			{
-				std::cout << "Name (max 3 spaces allowed and no empty field): ";
-				std::getline(std::cin, info);
-				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
-			}
+			parse_input(not_valid, info, "Name (max 3 spaces allowed and no empty field): ", 3);
 			new_contact.name = info;
 			std::cout << "Surname: ";
 			std::getline(std::cin, info);
-			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
-			while (not_valid)
-			{
-				std::cout << "Name (max 3 spaces allowed and no empty field): ";
-				std::getline(std::cin, info);
-				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
-			}
+			parse_input(not_valid, info, "Name (max 3 spaces allowed and no empty field): ", 3);
 			new_contact.surname = info;
 			std::cout << "Nickname: ";
 			std::getline(std::cin, info);
-			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
-			while (not_valid)
-			{
-				std::cout << "Name (max 3 spaces allowed and no empty field): ";
-				std::getline(std::cin, info);
-				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 3 || info.find("  ") != std::string::npos;
-			}
+			parse_input(not_valid, info, "Nickname (max 3 spaces allowed and no empty field): ", 3);
 			new_contact.nickname = info;
 			std::cout << "Phone: ";
 			std::getline(std::cin, info);
-			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 1 || info.find("  ") != std::string::npos;
-			while (not_valid)
-			{
-				std::cout << "Name (max 1 space allowed and no empty field): ";
-				std::getline(std::cin, info);
-				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 1 || info.find("  ") != std::string::npos;
-			}
+			parse_input(not_valid, info, "Phone (max 1 space allowed and no empty field): ", 1);
 			new_contact.phone = info;
 			std::cout << "Secret: ";
 			std::getline(std::cin, info);
-			not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 5 || info.find("  ") != std::string::npos;
-			while (not_valid)
-			{
-				std::cout << "Secret (max 5 spaces allowed and no empty field): ";
-				std::getline(std::cin, info);
-				not_valid = info.empty() || std::count(info.begin(), info.end(), ' ') > 5 || info.find("  ") != std::string::npos;
-			}
+			parse_input(not_valid, info, "Secret (max 5 spaces allowed and no empty field): ", 5);
 			new_contact.secret = info;
 			phonebook.contacts[l] = new_contact;
 		}
