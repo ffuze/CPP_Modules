@@ -37,16 +37,16 @@ int main(void)
 	Contacts contact2;
 	std::string option;
 	
-	contact1.name = "Alex";
-	contact1.surname = "Degl\'innocenti";
+	contact1.name = "Name1";
+	contact1.surname = "Surname1";
 	contact1.phone = "123";
-	contact1.nickname = "Alek";
-	contact1.secret = "Secret";
-	contact2.name = "Ilyas";
-	contact2.surname = "Mahjoubi";
-	contact2.phone = "987";
-	contact2.nickname = "Khallawi";
-	contact2.secret = "Zemen";
+	contact1.nickname = "Nick1";
+	contact1.secret = "Secret1";
+	contact2.name = "Name2";
+	contact2.surname = "Surname2";
+	contact2.phone = "456";
+	contact2.nickname = "Nick2";
+	contact2.secret = "Secret2";
 	phonebook.contacts[0] = contact1;
 	phonebook.contacts[1] = contact2;
 	std::cout << "User joined your channel. ";
