@@ -1,40 +1,14 @@
 #include "Harl.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
     Harl harl;
 
-    std::cout << "complain(\"DEBUG\"):" << std::endl;
-    harl.complain("DEBUG");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"INFO\"):" << std::endl;
-    harl.complain("INFO");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"WARNING\"):" << std::endl;
-    harl.complain("WARNING");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"ERROR\"):" << std::endl;
-    harl.complain("ERROR");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"debug\"):" << std::endl;
-    harl.complain("debug");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"INVALID\"):" << std::endl;
-    harl.complain("INVALID");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"\"):" << std::endl;
-    harl.complain("");
-    std::cout << std::endl;
-
-    std::cout << "complain(\"   \"):" << std::endl;
-    harl.complain("");
-    std::cout << std::endl;
-
+    if (argc != 2)
+    {
+        std::cout << "./harlFilter DEBUG|INFO|WARNING|ERROR" << std::endl;
+        return (0);
+    }
+    harl.complain(argv[1]);
     return 0;
 }

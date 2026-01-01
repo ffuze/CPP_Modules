@@ -20,6 +20,27 @@ void Harl::error(void)
     std::cout << "ERROR: some random words cuz im retarded n idk what to say" << std::endl;
 }
 
+Harl::Harl()
+{
+}
+
+Harl::~Harl()
+{
+}
+
+static int  getIntLevel(std::string level)
+{
+    if (level == "DEBUG")
+        return (0);
+    if (level == "INFO")
+        return (1);
+    if (level == "WARNING")
+        return (2);
+    if (level == "ERROR")
+        return (3);
+    return (-1);
+}
+
 void Harl::complain(std::string level)
 {
     void (Harl::*actions[4])() = {
@@ -28,12 +49,22 @@ void Harl::complain(std::string level)
         &Harl::warning,
         &Harl::error
     };
-    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    for (int i = 0; i < 4; i++)
+    switch (getIntLevel(level))
     {
-        if (levels[i] == level)
-        {
-            (this->*actions[i])();
-        }
+        case 0:
+            (this->*actions[0])();
+            break;
+        case 1:
+            (this->*actions[1])();
+            break;
+        case 2:
+            (this->*actions[2])();
+            break;
+        case 3:
+            (this->*actions[3])();
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            break;
     }
 }
