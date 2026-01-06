@@ -6,18 +6,18 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 11:12:10 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/05 15:30:24 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/06 11:49:33 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FixedPointNumber.hpp"
+#include "Fixed.hpp"
 
 int main( void ) {
-    FixedPointNumber a;
-    FixedPointNumber const b( 10 );
-    FixedPointNumber const c( 42.42f );
-    FixedPointNumber const d( b );
-    a = FixedPointNumber( 1234.4321f );
+    Fixed a;
+    Fixed const b( 10 );
+    Fixed const c( 42.42f );
+    Fixed const d( b );
+    a = Fixed( 1234.4321f );
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;

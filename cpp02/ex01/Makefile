@@ -1,8 +1,8 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = fixed
+NAME = osfixed
 
-SRC_FILES = main.cpp FixedPointNumber.cpp
+SRC_FILES = main.cpp Fixed.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
 NO_COLOR = \033[0m

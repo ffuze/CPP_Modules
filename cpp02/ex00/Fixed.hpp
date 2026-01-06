@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 11:12:10 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/06 11:50:40 by adegl-in         ###   ########.fr       */
+/*   Created: 2026/01/03 12:13:57 by adegl-in          #+#    #+#             */
+/*   Updated: 2026/01/03 12:57:50 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include <iostream>
+#include <string>
 
-int main( void )
+class Fixed
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+	private:
+		int _raw;
+		static const int _fract = 8;
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(const Fixed &obj);
+		Fixed &operator=(const Fixed &obj);
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+};
