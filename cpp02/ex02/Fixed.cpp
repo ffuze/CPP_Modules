@@ -136,7 +136,6 @@ bool Fixed::operator!=(const Fixed &obj) const
 	return (this->_raw != obj.getRawBits());
 }
 
-// The original AND modified value is returned
 Fixed& Fixed::operator++()
 {
 	this->_raw++;
