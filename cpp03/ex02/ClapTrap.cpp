@@ -19,13 +19,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	if (this != &other)
 	{
-		_name = other._name;
-		_health = other._health;
-		_energy = other._energy;
-		_attack = other._attack;
+		_name = other.getName();
+		_health = other.getHealth();
+		_energy = other.getEnergy();
+		_attack = other.getAttack();
 	}
 	std::cout << "ClapTrap assignment operator called" << std::endl;
-	return *this;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap()
@@ -35,42 +35,42 @@ ClapTrap::~ClapTrap()
 
 std::string ClapTrap::getName() const
 {
-	return _name;
+	return (this->_name);
 }
 
 int ClapTrap::getHealth() const
 {
-	return _health;
+	return (this->_health);
 }
 
 int ClapTrap::getEnergy() const
 {
-	return _energy;
+	return (this->_energy);
 }
 
 int ClapTrap::getAttack() const
 {
-	return _attack;
+	return (this->_attack);
 }
 
 void ClapTrap::setName(std::string name)
 {
-	_name = name;
+	this->_name = name;
 }
 
 void ClapTrap::setHealth(int health)
 {
-	_health = health;
+	this->_health = health;
 }
 
 void ClapTrap::setEnergy(int energy)
 {
-	_energy = energy;
+	this->_energy = energy;
 }
 
 void ClapTrap::setAttack(int attack)
 {
-	_attack = attack;
+	this->_attack = attack;
 }
 
 void ClapTrap::attack(const std::string& target)
