@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FixedPointNumber.cpp                               :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 19:28:48 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/05 19:30:30 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:35:32 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FixedPointNumber.hpp"
+#include "Fixed.hpp"
 
-FixedPointNumber::FixedPointNumber()
+Fixed::Fixed()
 {
     this->_raw = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
-FixedPointNumber::FixedPointNumber(const int value)
+Fixed::Fixed(const int value)
 {
     _raw = value * 256;
     std::cout << "Int constructor called" << std::endl;
 }
 
-FixedPointNumber::FixedPointNumber(const float value)
+Fixed::Fixed(const float value)
 {
     _raw = roundf(value * 256.0f);
     std::cout << "Float constructor called" << std::endl;
 }
 
-FixedPointNumber::FixedPointNumber(const FixedPointNumber &obj)
+Fixed::Fixed(const Fixed &obj)
 {
     std::cout << "Copy constructor called" << std::endl;
     this->operator=(obj);
 }
 
-FixedPointNumber::~FixedPointNumber()
+Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
 }
 
-int FixedPointNumber::toInt() const
+int Fixed::toInt() const
 {
     return (_raw / 256);
 }
 
-float FixedPointNumber::toFloat() const
+float Fixed::toFloat() const
 {
      return ((float)_raw / 256.0f);
 }
 
-FixedPointNumber& FixedPointNumber::operator=(const FixedPointNumber &obj)
+Fixed& Fixed::operator=(const Fixed &obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &obj)
@@ -59,18 +59,18 @@ FixedPointNumber& FixedPointNumber::operator=(const FixedPointNumber &obj)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &os, const FixedPointNumber &obj)
+std::ostream &operator<<(std::ostream &os, const Fixed &obj)
 {
     os << obj.toFloat();
     return (os);
 }
 
-int FixedPointNumber::getRawBits(void) const
+int Fixed::getRawBits(void) const
 {
-    return (FixedPointNumber::_raw);
+    return (Fixed::_raw);
 }
 
-void FixedPointNumber::setRawBits(int const raw)
+void Fixed::setRawBits(int const raw)
 {
     this->_raw = raw;
 }
