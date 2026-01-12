@@ -1,5 +1,5 @@
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -Wnoshadow -std=c++98
 NAME = diamondtrap
 
 SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
