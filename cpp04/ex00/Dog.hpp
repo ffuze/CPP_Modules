@@ -3,16 +3,14 @@
 
 # include "Animal.hpp"
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
-	private:
-		std::string type;
 	public:
-		Dog(std::string type);
-        Dog();
+		Dog();
+        ~Dog();
         Dog(const Dog& other);
-        Dog operator=(const Dog& other);
-        void makeSound();
+        Dog& operator=(const Dog& other);
+        void makeSound() const;
 };
 
 #endif

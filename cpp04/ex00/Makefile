@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = harl
+NAME = animals
 
 SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
