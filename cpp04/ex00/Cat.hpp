@@ -5,8 +5,11 @@
 
 class Cat : public Animal
 {
+	private:
+		std::string _type;
 	public:
 		Cat();
+		Cat(std::string type);
 		~Cat();
 		Cat(const Cat& other);
 		Cat& operator=(const Cat& other);
