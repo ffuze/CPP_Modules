@@ -30,7 +30,7 @@ Animal& Animal::operator=(const Animal& obj)
 Animal::Animal(const Animal& other)
 {
 	Animal::operator=(other);
-	std::cout << "Animal " << this->type << " copy constructor just copied" << std::endl;
+	std::cout << "Animal " << this->type << " copy constructor created" << std::endl;
 }
 
 void Animal::makeSound() const
