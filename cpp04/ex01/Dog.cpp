@@ -16,16 +16,25 @@ Dog::~Dog()
 Dog& Dog::operator=(const Dog& obj)
 {
     if (this != &obj)
+    {
         Animal::operator=(obj);
+        *this->brain = *(obj.brain);
+    }
     return (*this);
 }
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
+    this->brain = new Brain(*(other.brain));
     std::cout << this->type << " copy constructor was just created" << std::endl;
 }
 
 void Dog::makeSound() const
 {
     std::cout << "What the dawg doin" << std::endl;
+}
+
+Brain* Dog::getBrain() const
+{
+    return this->brain;
 }
