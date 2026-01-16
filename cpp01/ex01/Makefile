@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = zombie
+NAME = zombiehorde
 
 SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
