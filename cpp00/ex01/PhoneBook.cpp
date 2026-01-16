@@ -18,7 +18,7 @@ static int	get_contacts_length(PhoneBook pb)
 	count = 0;
 	for (int i = 0; i < 8; i++)
 	{
-		if (pb.contacts[i].name.empty())
+		if (pb.contacts[i].getName().empty())
 			break;
 		count++;
 	}
@@ -34,7 +34,8 @@ static void	parse_input(bool& not_valid, std::string& input, std::string message
 	while (not_valid)
 	{
 		std::cout << message;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(0);
 		not_valid = input.empty()
 					|| input[0] == ' '
 					|| std::count(input.begin(), input.end(), ' ') > count
@@ -49,16 +50,16 @@ int main(void)
 	Contacts contact2;
 	std::string option;
 	
-	contact1.name = "Name1";
-	contact1.surname = "Surname1";
-	contact1.phone = "123";
-	contact1.nickname = "Nick1";
-	contact1.secret = "Secret1";
-	contact2.name = "Name2";
-	contact2.surname = "Surname2";
-	contact2.phone = "456";
-	contact2.nickname = "Nick2";
-	contact2.secret = "Secret2";
+	contact1.setName("Name1");
+	contact1.setSurname("Surname1");
+	contact1.setPhone("123");
+	contact1.setNickname("Nick1");
+	contact1.setSecret("Secret1");
+	contact2.setName("Name2");
+	contact2.setSurname("Surname2");
+	contact2.setPhone("456");
+	contact2.setNickname("Nick2");
+	contact2.setSecret("Secret2");
 	phonebook.contacts[0] = contact1;
 	phonebook.contacts[1] = contact2;
 	std::cout << "User joined your channel. ";
@@ -66,11 +67,12 @@ int main(void)
 	{
 		bool not_valid = false;
 		std::cout << "Please select between ADD, SEARCH and EXIT" << std::endl;
-		std::getline(std::cin, option);
+		if (!std::getline(std::cin, option))
+			break;
 		parse_input(not_valid, option, "No spaces or empty fields are allowed: ", 0);
 		if (option == "ADD")
 		{
-			Contacts new_contact = {};
+			Contacts new_contact;
 			std::string info;
 			int	l;
 			info = "";
@@ -84,33 +86,32 @@ int main(void)
 			std::cout << "Name: ";
 			std::getline(std::cin, info);
 			parse_input(not_valid, info, "Name (max 3 spaces allowed and no empty field): ", 3);
-			new_contact.name = info;
+					   new_contact.setName(info);
 			std::cout << "Surname: ";
 			std::getline(std::cin, info);
 			parse_input(not_valid, info, "Surname (max 3 spaces allowed and no empty field): ", 3);
-			new_contact.surname = info;
+					   new_contact.setSurname(info);
 			std::cout << "Nickname: ";
 			std::getline(std::cin, info);
 			parse_input(not_valid, info, "Nickname (max 3 spaces allowed and no empty field): ", 3);
-			new_contact.nickname = info;
+					   new_contact.setNickname(info);
 			std::cout << "Phone: ";
 			std::getline(std::cin, info);
 			parse_input(not_valid, info, "Phone (max 1 space allowed and no empty field): ", 1);
-			new_contact.phone = info;
+					   new_contact.setPhone(info);
 			std::cout << "Secret: ";
 			std::getline(std::cin, info);
 			parse_input(not_valid, info, "Secret (max 5 spaces allowed and no empty field): ", 5);
-			new_contact.secret = info;
+					   new_contact.setSecret(info);
 			phonebook.contacts[l] = new_contact;
 		}
 		else if (option == "SEARCH")
 		{
 			for (int i = 1; i <= get_contacts_length(phonebook); i++)
 			{
-				// create an opening line for the table
-				std::string name = phonebook.contacts[i - 1].name;
-				std::string surname = phonebook.contacts[i - 1].surname;
-				std::string nickname = phonebook.contacts[i - 1].nickname;
+				std::string name = phonebook.contacts[i - 1].getName();
+				std::string surname = phonebook.contacts[i - 1].getSurname();
+				std::string nickname = phonebook.contacts[i - 1].getNickname();
 				if (name.length() > 10)
 					name = name.substr(0, 9) + '.';
 				if (surname.length() > 10)
