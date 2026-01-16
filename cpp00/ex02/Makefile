@@ -2,7 +2,7 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = account
 
-SRC_FILES = Account.cpp
+SRC_FILES = Account.cpp tests.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
 NO_COLOR = \033[0m
