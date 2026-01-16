@@ -17,12 +17,30 @@ int main(void)
 	int number = 12;
 	std::string name = "Alek";
 	Zombie* zombie = zombieHorde(number, name);
-	if (!zombie)
-		return (0);
-	for (int i = 0; i < number; i++)
+	if (zombie)
 	{
-		zombie[i].announce();
+		for (int i = 0; i < number; i++)
+			zombie[i].announce();
+		delete[] zombie;
 	}
-	delete[] zombie;
-	return (1);
+
+	Zombie* single = zombieHorde(1, "Solo");
+	if (single)
+	{
+		single[0].announce();
+		delete[] single;
+	}
+
+	Zombie* none = zombieHorde(0, "Nobody");
+	if (none)
+		delete[] none;
+
+	Zombie* diff = zombieHorde(5, "Brains");
+	if (diff)
+	{
+		for (int i = 0; i < 5; i++)
+			diff[i].announce();
+		delete[] diff;
+	}
+	return 0;
 }
