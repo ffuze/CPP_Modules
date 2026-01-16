@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = brain
+NAME = weapon
 
 SRC_FILES = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
