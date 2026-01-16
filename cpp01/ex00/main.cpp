@@ -16,5 +16,17 @@ int main(void)
 {
     Zombie *zombie = newZombie("Alek");
     zombie->announce();
-    delete (zombie);
+    delete zombie;
+
+    Zombie stackZombie("StackAhhZ");
+    stackZombie.announce();
+
+    randomChump("RandomAhhZ");
+
+    Zombie *z1 = newZombie("HeapAhhZ");
+    Zombie *z2 = newZombie("HeapAhhZ");
+    z1->announce();
+    z2->announce();
+    delete z1;
+    delete z2;
 }
