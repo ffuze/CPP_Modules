@@ -12,6 +12,14 @@
 
 #include "Harl.hpp"
 
+Harl::Harl()
+{
+}
+
+Harl::~Harl()
+{
+}
+
 void Harl::debug(void)
 {
     std::cout << "DEBUG: some random words cuz im retarded n idk what to say" << std::endl;
