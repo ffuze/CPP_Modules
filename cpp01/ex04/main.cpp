@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 11:10:25 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/03 12:14:16 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:59:10 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,17 @@ int replaceAll(std::string filename, std::string s1, std::string s2)
 	if (!newfile.is_open())
 	{
 		std::cout << "New file cannot be created" << std::endl;
+		ifile.close();
 		return (0);
 	}
 	std::string line;
 	bool firstline = true;
     while (std::getline(ifile, line))
     {
+		size_t pos = 0;
 		if (!firstline)
 			newfile << '\n';
 		firstline = false;
-        size_t pos = 0;
         while ((pos = line.find(s1, pos)) != std::string::npos)
         {
             line.erase(pos, s1.length());
