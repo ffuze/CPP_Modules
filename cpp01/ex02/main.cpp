@@ -21,7 +21,7 @@ int main(void)
 
     std::cout << "Memory address of string: " << &string << std::endl;
     std::cout << "Memory address in stringPTR: " << stringPTR << std::endl;
-    std::cout << "Memory address in stringREF: " << stringREF << std::endl << std::endl;
+    std::cout << "Memory address in stringREF: " << &stringREF << std::endl << std::endl;
 
     std::cout << "Value of string: " << string << std::endl;
     std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
