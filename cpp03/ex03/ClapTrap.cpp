@@ -6,11 +6,16 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:16:49 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 19:35:35 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:53:39 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "Default ClapTrap created";
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
