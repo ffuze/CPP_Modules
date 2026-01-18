@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:09:10 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 19:29:26 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:34:32 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 ClapTrap::ClapTrap()
 {
+	std::cout << "Default ClapTrap created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name) : _name(name), _health(10), _energy(10), _attack(0)
 {
-	this->_name = name;
-	_health = 10;
-	_energy = 10;
-	_attack = 0;
-	std::cout << "ClapTrap " << name << " created" << std::endl;
+	std::cout << "Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()

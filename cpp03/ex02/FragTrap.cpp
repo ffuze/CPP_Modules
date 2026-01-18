@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:19:35 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 19:26:01 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:40:38 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 FragTrap::FragTrap()
 {
+	std::cout << "Default FragTrap created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) 
