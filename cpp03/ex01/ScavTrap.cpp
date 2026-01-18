@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:19:35 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 18:55:58 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:15:40 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap destructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+    std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+    if (this != &other)
+        ClapTrap::operator=(other);
+    std::cout << "ScavTrap assignment operator called" << std::endl;
+    return *this;
 }
 
 void ScavTrap::attack(const std::string& target)
