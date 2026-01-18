@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:07:45 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 18:48:53 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 18:54:47 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void ClapTrap::attack(const std::string& target)
 	}
 	if (_energy < 1)
 	{
-		std::cout << "ClapTrap is out of energy! Energy: " << _energy << std::endl;
+		std::cout << "ClapTrap says: \"Im tired boss\". " << "Energy: " << _energy << std::endl;
 		return;
 	}
 	_energy--;
