@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:19:35 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/16 13:27:59 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:26:01 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap()
+{
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) 
 {
@@ -46,9 +50,9 @@ void FragTrap::highFivesGuys(void)
 
 void FragTrap::attack(const std::string& target)
 {
-    if (_health <= 0)
+	if (_health <= 0)
 	{
-		std::cout << "Ded, not big surprise" << std::endl;
+		std::cout << "Cant make FragTrap attack if it's dead XD" << std::endl;
 		return;
 	}
 	if (_energy < 1)
@@ -57,7 +61,8 @@ void FragTrap::attack(const std::string& target)
 		return;
 	}
 	_energy--;
-	std::cout << "FragTrap " << _name << " attacks " << target << ", causing ";
-    std::cout << _attack << " points of damage! Energy:" << _energy << std::endl;
+	std::cout << "FragTrap " << FragTrap::_name << " attacks " << target << ", causing ";
+    std::cout << FragTrap::_attack << " points of damage! Energy:" << _energy << std::endl;
+	std::cout << "HP: " << _health << std::endl;
 	std::cout << "DRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR" << std::endl;
 }

@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:11:21 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/16 13:27:59 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:29:11 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "Default ClapTrap created" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -89,18 +94,17 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (_health <= 0)
 	{
-		std::cout << "Ded, not big surprise" << std::endl;
+		std::cout << "Cant make Clap attack if it's dead XD" << std::endl;
 		return;
 	}
 	if (_energy < 1)
 	{
-		std::cout << "ClapTrap says: \"Im tired boss\". Energy: " << _energy << std::endl;
+		std::cout << "ClapTrap says: \"Im tired boss\". " << "Energy: " << _energy << std::endl;
 		return;
 	}
-	_attack = 5;
 	_energy--;
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing ";
-    std::cout << _attack << " points of damage! " << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attack << " points of damage! Energy: " << _energy << std::endl;
+	std::cout << "HP: " << _health << std::endl;
 	std::cout << "DRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR" << std::endl;
 }
 
@@ -112,10 +116,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 		return;
 	}
 	_health -= amount;
-	_attack = amount;
 	if (_health <= 0)
 	{
-		std::cout << "Ded, not big surprise" << std::endl;
+		_health = 0;
+		std::cout << "Headshot!" << std::endl;
 		return;
 	}
 	std::cout << "That hurt! Bigger weapons! HP: "  << _health << std::endl;
@@ -125,20 +129,22 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_health <= 0)
 	{
-		std::cout << "Ded, not big surprise" << std::endl;
+		std::cout << "Cant repair ClapTrap if it's already dead lol" << std::endl;
 		return;
 	}
 	if (_energy < 1)
 	{
-		std::cout << "Im out of energy! " << "HP: " << std::endl;
+		std::cout << "ClapTrap is out of energy! " << "HP, ENERGY: " << _health << ", " << _energy << std::endl;
 		return;
 	}
-	if (_health + amount > 100)
+	if (_health >= 10)
 	{
-		std::cout << "I'm still too healthy to be repaired! HP: " << _health << " Amount: " << amount << std::endl;
+		std::cout << "I already have a lot of protein inside me sir!" << std::endl;
 		return;
 	}
 	_energy--;
 	_health += amount;
-	std::cout << "I need more bullets! Wow, thanks for the protein, sir! Watch me ride that horse sir! HP: " << _health << std::endl;
+	if (_health > 10)
+		_health = 10;
+	std::cout << "I need more bullets! Wow, thanks for the protein, sir! Watch me ride that horse sir! -" << _name << " HP: " << _health << std::endl;
 }

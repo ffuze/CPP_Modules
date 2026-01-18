@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:19:35 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/16 13:27:59 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:28:35 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,12 @@ int main(void)
 	std::cout << std::endl << "=== Energy ===" << std::endl;
 	for (int i = 0; i < 12; i++)
 	{
-		std::cout << "Attack #" << i + 1 << ": ";
+		std::cout << "Attack " << i + 1 << ": ";
 		frag1.attack("dummy");
+		frag1.beRepaired(1);
 	}
 
-	std::cout << std::endl << "=== Lethal damage (>9) ===" << std::endl;
+	std::cout << std::endl << "=== Lethal damage (>99) ===" << std::endl;
 	frag2.takeDamage(100);
 
 	std::cout << std::endl << "=== Actions after death ===" << std::endl;

@@ -6,11 +6,15 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:09:10 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 19:03:15 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:29:26 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -123,12 +127,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_health <= 0)
 	{
-		std::cout << "Cant repair ScavTrap if it's already dead lol" << std::endl;
+		std::cout << "Cant repair ClapTrap if it's already dead lol" << std::endl;
 		return;
 	}
 	if (_energy < 1)
 	{
-		std::cout << "ScavTrap is out of energy! " << "HP, ENERGY: " << _health << ", " << _energy << std::endl;
+		std::cout << "ClapTrap is out of energy! " << "HP, ENERGY: " << _health << ", " << _energy << std::endl;
 		return;
 	}
 	if (_health >= 10)

@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:58:03 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 18:51:10 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:22:05 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ClapTrap
 		int _energy;
 		int _attack;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap& other);
