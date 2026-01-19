@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 13:26:54 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/16 13:27:59 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:54:07 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void testBrainIdeas()
 {
 	std::cout << "\n========== Brain ideas ==========\n" << std::endl;
 	Dog* dog1 = new Dog();
-	dog1->getBrain()->setIdea("Chase the ball");
-	dog1->getBrain()->setIdea("Bark at mailman");
-	dog1->getBrain()->setIdea("Take a nap");
+	dog1->getBrain()->setIdea("Sell weed");
+	dog1->getBrain()->setIdea("Dominate the hood");
+	dog1->getBrain()->setIdea("Order KFC");
 	std::cout << "\nDog1's ideas:" << std::endl;
 	std::string* ideas = dog1->getBrain()->getIdeas();
 	for (int i = 0; i < 5; i++)
@@ -35,7 +35,7 @@ void testBrainIdeas()
 		if (!ideas[i].empty())
 			std::cout << "  Idea " << i << ": " << ideas[i] << std::endl;
 	}
-	dog2.getBrain()->setIdea("Dig a hole");
+	dog2.getBrain()->setIdea("Release a new album");
 	std::cout << "Dog1 ideas:" << std::endl;
 	ideas = dog1->getBrain()->getIdeas();
 	for (int i = 0; i < 5; i++)
