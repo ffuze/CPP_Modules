@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/16 13:26:54 by adegl-in          #+#    #+#             */
+/*   Updated: 2026/01/19 15:13:41 by adegl-in         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+
+Animal::Animal()
+{
+	std::cout << "Typeless animal was just created" << std::endl;
+	type = "typeless";
+}
+
+Animal::Animal(std::string type)
+{
+	this->type = type;
+	std::cout << "Animal " << type << " was just created" << std::endl;
+}
+
+Animal::~Animal()
+{
+	if (this->type.empty())
+		std::cout << "Typeless animal was just annihilated" << std::endl;
+	else
+		std::cout << "Animal " << this->type << " was just annihilated" << std::endl;
+}
+
+Animal& Animal::operator=(const Animal& obj)
+{
+	if (this != &obj)
+		this->type = obj.type;
+	return (*this);
+}
+
+Animal::Animal(const Animal& other)
+{
+	Animal::operator=(other);
+	std::cout << "Animal " << this->type << " copy constructor created" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+	return (this->type);
+}
+
+void Animal::setType(std::string type)
+{
+	this->type = type;
+}
