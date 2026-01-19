@@ -2,7 +2,7 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = animals
 
-SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
 NO_COLOR = \033[0m
