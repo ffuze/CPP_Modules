@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:27:27 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/16 13:27:59 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:10:47 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -46,5 +47,11 @@ int main()
     delete j;
     delete i;
 
-    return 0;
+    std::cout << std::endl << "=== WrongAnimals ===" << std::endl;
+    const WrongAnimal* stuped = new WrongCat();
+    std::cout << "stuped type: " << stuped->getType() << std::endl;
+    stuped->makeSound();
+
+    delete stuped;
+    return (0);
 }

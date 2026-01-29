@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 11:10:25 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/17 14:21:28 by adegl-in         ###   ########.fr       */
+/*   Created: 2026/01/16 13:26:54 by adegl-in          #+#    #+#             */
+/*   Updated: 2026/01/18 16:58:43 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-class HumanB
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Cat : public Animal
 {
 	private:
-		std::string name;
-		Weapon* weapon;
+		Brain* brain;
 	public:
-		HumanB(std::string name);
-		~HumanB();
-        void setWeapon(Weapon& weapon);
-		void attack();
+		Cat();
+		~Cat();
+		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
+		void makeSound() const;
+		Brain* getBrain() const;
 };
+
+#endif

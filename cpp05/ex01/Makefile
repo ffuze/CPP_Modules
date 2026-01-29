@@ -1,8 +1,8 @@
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -Wno-shadow -std=c++98
-NAME = diamondtrap
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = form
 
-SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC_FILES = main.cpp Bureaucrat.cpp Form.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
 NO_COLOR = \033[0m

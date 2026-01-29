@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 11:10:25 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/03 12:14:16 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:09:34 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void Harl::debug(void)
 {
-    std::cout << "DEBUG: some random words cuz im retarded n idk what to say" << std::endl;
+    std::cout << "DEBUG: I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
 void Harl::info(void)
 {
-    std::cout << "INFO: some random words cuz im retarded n idk what to say" << std::endl;
+    std::cout << " cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
 void Harl::warning(void)
 {
-    std::cout << "WARNING: some random words cuz im retarded n idk what to say" << std::endl;
+    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month." << std::endl;
 }
 
 void Harl::error(void)
 {
-    std::cout << "ERROR: some random words cuz im retarded n idk what to say" << std::endl;
+    std::cout << "ERROR: his is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
 Harl::Harl()

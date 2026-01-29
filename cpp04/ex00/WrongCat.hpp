@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 11:10:25 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/17 14:21:28 by adegl-in         ###   ########.fr       */
+/*   Created: 2026/01/18 16:58:41 by adegl-in          #+#    #+#             */
+/*   Updated: 2026/01/18 17:04:56 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-class HumanB
+# include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
 {
 	private:
-		std::string name;
-		Weapon* weapon;
+		std::string _type;
 	public:
-		HumanB(std::string name);
-		~HumanB();
-        void setWeapon(Weapon& weapon);
-		void attack();
+		WrongCat();
+		WrongCat(std::string type);
+		~WrongCat();
+		WrongCat(const WrongCat& other);
+		WrongCat& operator=(const WrongCat& other);
+		void makeSound() const;
 };
+
+#endif

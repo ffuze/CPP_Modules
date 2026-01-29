@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 13:26:54 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/19 16:54:07 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:53:23 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void testBrainIdeas()
 int main()
 {
 	testBrainIdeas();
-	std::cout << "\n========== Obj creation and deletion ==========\n" << std::endl;
-	int x = 50;
+	std::cout << "\n=== Obj creation and deletion ===\n" << std::endl;
+	int x = 5;
 	Animal* animals[x];
 	for (int i = 0; i < x / 2; i++)
 	{

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 11:10:25 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/17 14:21:28 by adegl-in         ###   ########.fr       */
+/*   Created: 2026/01/16 13:26:54 by adegl-in          #+#    #+#             */
+/*   Updated: 2026/01/19 15:00:34 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-class HumanB
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Dog : public Animal
 {
-	private:
-		std::string name;
-		Weapon* weapon;
+    private:
+        Brain* brain;
 	public:
-		HumanB(std::string name);
-		~HumanB();
-        void setWeapon(Weapon& weapon);
-		void attack();
+		Dog();
+        ~Dog();
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        void makeSound() const;
+        Brain* getBrain() const;
 };
+
+#endif

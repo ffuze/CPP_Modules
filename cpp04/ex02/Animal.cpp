@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 15:07:05 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/18 16:57:50 by adegl-in         ###   ########.fr       */
+/*   Created: 2026/01/16 13:26:54 by adegl-in          #+#    #+#             */
+/*   Updated: 2026/01/19 15:13:41 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,7 @@ Animal& Animal::operator=(const Animal& obj)
 Animal::Animal(const Animal& other)
 {
 	Animal::operator=(other);
-	std::cout << "Animal " << this->type << " copy constructor just created" << std::endl;
-}
-
-void Animal::makeSound() const
-{
-	std::cout << "uuuuuuuhh" << std::endl;
+	std::cout << "Animal " << this->type << " copy constructor created" << std::endl;
 }
 
 std::string Animal::getType() const

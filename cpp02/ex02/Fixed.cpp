@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 19:28:48 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/16 13:27:59 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:54:37 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ Fixed Fixed::operator/(const Fixed &obj)
 	int rawBits = obj.getRawBits();
 	if (rawBits == 0)
 		return (Fixed(666));
-	result.setRawBits(_raw / rawBits);
+	result.setRawBits((_raw * 256) / obj.getRawBits());
 	return (result);
 }
 
