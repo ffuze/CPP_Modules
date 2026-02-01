@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:58:22 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/26 19:34:27 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/30 11:06:54 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,20 @@ void Bureaucrat::increaseGrade()
 	this->grade--;
 }
 
+void Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->name << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << this->name << " couldn't sign  " << form.getName() << " because " << e.what() << '\n';
+	}
+	
+}
+
 Bureaucrat::GradeTooHighException::GradeTooHighException()
 {
 }
@@ -61,12 +75,12 @@ Bureaucrat::GradeTooLowException::GradeTooLowException()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade of bureaucrat too high (max is 1)");
+	return ("grade of bureaucrat is too high (max is 1)");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade of bureaucrat too low (min is 150)");
+	return ("Grade of bureaucrat is too low (min is 150)");
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)

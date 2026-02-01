@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:57:52 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/28 11:38:54 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/01/30 10:59:46 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
         int getGrade() const;
         void increaseGrade();
         void decreaseGrade();
-        void signForm();
+        void signForm(Form& form);
         class GradeTooHighException : public std::exception
         {
             public:

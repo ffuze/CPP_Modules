@@ -14,18 +14,17 @@ class Form
 	private:
 		const std::string name;
 		bool sign;
-		const int signingGrade;
-		const int exGrade;
+		const int gradeToSign;
+		const int gradeToExecute;
 	public:
 		Form();
-		Form(const std::string name, bool sign, const int grade, const int exGrade);
+		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
 		~Form();
 		const std::string getName() const;
 		const bool getSign() const;
-		const int geSigningGrade() const;
-		const int getExGrade() const;
-		void beSigned(const Bureaucrat& bur);
-
+		const int getGradeToSign() const;
+		const int getGradeToExecute() const;
+		int beSigned(const Bureaucrat& bur);
 		class GradeTooHighException : public std::exception
 		{
 			public:
