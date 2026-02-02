@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alek <alek@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:57:52 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/01/30 10:59:46 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:44:57 by alek             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <exception>
 # include <cstdlib>
 
-# include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {

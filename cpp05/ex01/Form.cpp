@@ -5,7 +5,7 @@ Form::Form() : name("Default"), sign(false), gradeToSign(1), gradeToExecute(1)
 }
 
 Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute)
-	: name(name), sign(sign), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+	: name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
@@ -17,11 +17,19 @@ Form::~Form()
 {
 }
 
-int Form::beSigned(const Bureaucrat& bur)
+void Form::beSigned(const Bureaucrat& bur)
 {
     if (bur.getGrade() > this->getGradeToSign())
         throw (Form::GradeTooLowException());
     this->sign = true;
+}
+
+Form::GradeTooHighException::GradeTooHighException()
+{
+}
+
+Form::GradeTooLowException::GradeTooLowException()
+{
 }
 
 const char* Form::GradeTooHighException::what() const throw()
@@ -34,22 +42,22 @@ const char* Form::GradeTooLowException::what() const throw()
     return ("Grade of the bureaucrat is too low");
 }
 
-const std::string Form::getName() const
+std::string Form::getName() const
 {
 	return (name);
 }
 
-const bool Form::getSign() const
+bool Form::getSign() const
 {
 	return (sign);
 }
 
-const int Form::getGradeToSign() const
+int Form::getGradeToSign() const
 {
 	return (gradeToSign);
 }
 
-const int Form::getGradeToExecute() const
+int Form::getGradeToExecute() const
 {
 	return (gradeToExecute);
 }

@@ -20,11 +20,11 @@ class Form
 		Form();
 		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
 		~Form();
-		const std::string getName() const;
-		const bool getSign() const;
-		const int getGradeToSign() const;
-		const int getGradeToExecute() const;
-		int beSigned(const Bureaucrat& bur);
+		std::string getName() const;
+		bool getSign() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
+		void beSigned(const Bureaucrat& bur);
 		class GradeTooHighException : public std::exception
 		{
 			public:
