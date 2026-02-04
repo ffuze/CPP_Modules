@@ -6,6 +6,7 @@
 # include <string>
 # include <exception>
 # include <stdbool.h>
+# include <ostream>
 
 # include "Bureaucrat.hpp"
 
@@ -39,6 +40,6 @@ class Form
 		};
 };
 
-std::ostream& operator<<(const std::ostream& os, const Form& obj);
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif

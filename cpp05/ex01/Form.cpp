@@ -61,3 +61,12 @@ int Form::getGradeToExecute() const
 {
 	return (gradeToExecute);
 }
+
+std::ostream& operator<<(std::ostream& os, const Form& obj)
+{
+    os << "Form name: " << obj.getName() << std::endl;
+    os << "Grade to get it signed: " << obj.getGradeToSign() << std::endl;
+    os << "Grade to get it executed: " << obj.getGradeToExecute() << std::endl;
+    os << "Is it signed? " << (obj.getSign() ? "Yes" : "No") << std::endl;
+    return (os);
+}

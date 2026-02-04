@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alek <alek@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:57:45 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/02/02 11:50:20 by alek             ###   ########.fr       */
+/*   Updated: 2026/02/04 14:55:51 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,11 +153,22 @@ int main(void)
         std::cout << "Boss grade: " << boss.getGrade() << ", Form requires: " << form6.getGradeToSign() << std::endl;
         boss.signForm(form6);
         std::cout << "Form signed: " << (form6.getSign() ? "Yes" : "No") << std::endl;
+        std::cout << form6 << std::endl;
     }
     catch (const std::exception& e)
 	{
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
+    try
+    {
+        Form form6("Slave", 125, 150);
+        std::cout << form6;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     
     return (0);
 }
