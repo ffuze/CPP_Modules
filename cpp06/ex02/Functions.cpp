@@ -6,7 +6,6 @@
 Base* generate()
 {
     int random = rand() % 3;
-    
     if (random == 0)
     {
         std::cout << "Generated type A" << std::endl;
@@ -46,7 +45,7 @@ void identify(Base& p)
     }
     catch (std::exception& e)
     {
-        std::cout << "(" << e.what() << ") ";
+        // std::cout << "(" << e.what() << ") ";
     }
     try
     {
@@ -56,7 +55,7 @@ void identify(Base& p)
     }
     catch (std::exception& e)
     {
-        std::cout << "(" << e.what() << ") ";
+        // std::cout << "(" << e.what() << ") ";
     }
     try
     {
@@ -66,8 +65,7 @@ void identify(Base& p)
     }
     catch (std::exception& e)
     {
-        std::cout << "(" << e.what() << ") ";
+        // std::cout << "(" << e.what() << ") ";
     }
-    
     std::cout << "Unknown type" << std::endl;
 }

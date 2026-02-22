@@ -2,52 +2,42 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include "functions.hpp"
+#include "Functions.hpp"
 #include <cstdlib>
 #include <ctime>
 
 int main()
 {
     srand(time(NULL));
-    std::cout << "=== Generate and identify with pointer ===" << std::endl;
+    std::cout << "=== identify(Base*) on random instances ===" << std::endl;
     for (int i = 0; i < 5; i++)
     {
+        std::cout << "[" << i << "]";
         Base* ptr = generate();
-        std::cout << "Identified as: ";
+        std::cout << "Generated class is: ";
         identify(ptr);
         delete (ptr);
-        std::cout << std::endl;
     }
-    std::cout << "=== Testing identify with references ===" << std::endl;
     std::cout << std::endl;
-    std::cout << "generate() and identify() with reference" << std::endl;
+    std::cout << "=== identify(Base&) on random instances ===" << std::endl;
     for (int i = 0; i < 5; i++)
     {
+        std::cout << "[" << i << "]";
         Base* ptr = generate();
-        std::cout << "Identified as: ";
+        std::cout << "Generated class is: ";
         identify(*ptr);
         delete (ptr);
-        std::cout << std::endl;
     }
-    std::cout << "=== Testing specific instances ===" << std::endl;
     std::cout << std::endl;
-    Base* a = new A();
-    Base* b = new B();
-    Base* c = new C();
-    std::cout << "Instance A with pointer: ";
-    identify(a);
-    std::cout << "Instance A with reference: ";
-    identify(*a);
-    std::cout << "Instance B with pointer: ";
-    identify(b);
-    std::cout << "Instance B with reference: ";
-    identify(*b);
-    std::cout << "Instance C with pointer: ";
-    identify(c);
-    std::cout << "Instance C with reference: ";
-    identify(*c);
-    delete (a);
-    delete (b);
-    delete (c);
+    Base* instances[3] = { new A(), new B(), new C() };
+    for (int i = 0; i < 3; i++)
+    {
+        std::cout << "[" << i << "]";
+        std::cout << "pointer: ";
+        identify(instances[i]);
+        std::cout << "reference: ";
+        identify(*instances[i]);
+        delete (instances[i]);
+    }
     return (0);
 }
