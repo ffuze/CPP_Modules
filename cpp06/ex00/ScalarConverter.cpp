@@ -5,7 +5,9 @@ static bool isChar(const std::string& value)
     if (value.length() == 3
         && value[0] == '\'' && value[2] == '\''
         && std::isprint(value[1]))
-        return (true);
+		{
+			return (true);
+		}
     if (value.length() == 1 && std::isprint(value[0]))
         return (true);
     return (false);
@@ -178,7 +180,10 @@ void ScalarConverter::convert(const std::string& value)
 			conv = strtod(value.c_str(), 0);
             break;
 		case CHAR:
-			conv = static_cast<double>(value[1]);
+			if (value.length() == 1)
+				conv = static_cast<double>(value[0]);
+			if (value.length() == 3)
+				conv = static_cast<double>(value[1]);
 			break;
 		default:
 			break;

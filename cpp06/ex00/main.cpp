@@ -11,6 +11,8 @@ static void runAllTests()
 {
     runTest("'a'");
     runTest("'Z'");
+    runTest("a");
+    runTest("Z");
 
     runTest("0");
     runTest("42");
