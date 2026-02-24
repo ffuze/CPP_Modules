@@ -1,4 +1,4 @@
-#include "iter.hpp"
+#include "Iter.hpp"
 
 template <typename T>
 static void printValue(T& value)
@@ -46,6 +46,5 @@ int main()
     std::string words[] = {"OPEN", "UP", "THE", "SKYE"};
     iter(words, 4, &printValue<std::string>);
     std::cout << std::endl;
-    
     return (0);
 }
