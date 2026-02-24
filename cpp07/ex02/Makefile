@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = array
+NAME = arraytemplate
 
 SRC_FILES = main.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)

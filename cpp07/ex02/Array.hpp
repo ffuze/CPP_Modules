@@ -4,52 +4,55 @@
 # include <iostream>
 # include <exception>
 
-template <class T>
+template <typename T>
 class Array
 {
     private:
-        T* _elements;
+        T* elements;
         unsigned int _size;
     public:
-        Array() : _elements(NULL), _size(0) {}
-        Array(unsigned int n) : _elements(new T[n]), _size(n) {}
-        Array(const Array<T>& copy) : _elements(NULL), _size(0)
+        Array() : elements(NULL), _size(0) {}
+        Array(unsigned int n) : elements(new T[n]), _size(n) {}
+        Array(const Array<T>& copy) : elements(NULL), _size(0)
         {
             *this = copy;
         }
-        ~Array() { delete[] _elements; }
+        ~Array()
+        {
+            delete[] (elements);
+        }
         Array<T>& operator=(const Array<T>& obj)
         {
             if (this != &obj)
             {
-                delete[] _elements;
+                delete[] (elements);
                 _size = obj._size;
                 if (_size > 0)
                 {
-                    _elements = new T[_size];
+                    elements = new T[_size];
                     for (unsigned int i = 0; i < _size; i++)
-                        _elements[i] = obj._elements[i];
+                        elements[i] = obj.elements[i];
                 }
                 else
-                    _elements = NULL;
+                    elements = NULL;
             }
             return (*this);
         }
         T& operator[](unsigned int index)
         {
             if (index >= _size)
-                throw std::exception();
-            return _elements[index];
+                throw (std::exception());
+            return (elements[index]);
         }
         const T& operator[](unsigned int index) const
         {
             if (index >= _size)
-                throw std::exception();
-            return _elements[index];
+                throw (std::exception());
+            return (elements[index]);
         }
         unsigned int size() const
         {
-            return _size;
+            return (_size);
         }
 };
 
