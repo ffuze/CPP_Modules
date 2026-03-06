@@ -51,19 +51,15 @@ int Span::shortestSpan() const
 	{
 		for (unsigned int i = 0; i < this->spanSize; i++)
 		{
-			std::cout << "(short) spans: " << spans[i] << std::endl;
 			if (this->spans[i + 1])
 			{
-				std::cout << "(short) spans + 1: " << spans[i + 1] << std::endl;
 				diff = this->spans[i] - this->spans[i + 1];
-				std::cout << "(short) diff : " << diff << std::endl;
 				if (diff < min)
 				{
 					if (diff < 0)
 						diff = abs(diff);
 					min = diff;
 				}
-				std::cout << "(short) min: " << min << std::endl;
 			}
 		}
 	}
@@ -83,17 +79,13 @@ int Span::longestSpan() const
 	{
 		for (unsigned int i = 0; i < this->spanSize; i++)
 		{
-			std::cout << "(long) spans: " << spans[i] << std::endl;
 			if (this->spans[i + 1])
 			{
-				std::cout << "(long) spans + 1: " << spans[i + 1] << std::endl;
 				diff = this->spans[i] - this->spans[i + 1];
-				std::cout << "(long) diff : " << diff << std::endl;
 				if (diff < 0)
 					diff = abs(diff);
 				if (diff > max)
 					max = diff;
-				std::cout << "(long) maxc : " << max << std::endl;
 			}
 		}	
 	}
