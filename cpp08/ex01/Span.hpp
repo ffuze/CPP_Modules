@@ -1,10 +1,7 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# include <iostream>
-# include <string>
-# include <exception>
-# include <vector>
+# include <bits/stdc++.h>
 
 class Span
 {
@@ -27,6 +24,10 @@ class Span
                 {
                     return ("Cannot add more numbers into the vector");
                 }
+        };
+        unsigned int getSize() const
+        {
+            return (spanSize);
         }
 };
 

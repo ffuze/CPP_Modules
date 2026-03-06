@@ -2,7 +2,7 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = span
 
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp Span.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
 NO_COLOR = \033[0m
