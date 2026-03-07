@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = span
+NAME = dequecontainer
 
 SRC_FILES = main.cpp
 OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
