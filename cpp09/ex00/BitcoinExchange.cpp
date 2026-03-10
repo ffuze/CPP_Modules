@@ -16,6 +16,14 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
 	this->operator=(copy);
 }
 
+void BitcoinExchange::printMapContent(std::multimap<std::string, double> local_map) const
+{
+	for (std::multimap<std::string, double>::const_iterator it = local_map.begin(); it != local_map.end(); ++it)
+	{
+		std::cout << it->first << " | " << it->second << "\n";
+	}
+}
+
 int BitcoinExchange::manageFile(std::string local_database)
 {
 	if (local_database.empty())
@@ -31,11 +39,14 @@ int BitcoinExchange::manageFile(std::string local_database)
 		if (firstline)
 		{
 			firstline = false;
-			continue;
+			continue; 
 		}
 		size_t pipe = line.find('|');
 		if (pipe == std::string::npos)
+		{
+			std::cout << "Error: bad input => " << line.substr(0, line.size()) << std::endl;
 			continue;
+		}
 		std::string date = line.substr(0, pipe);
 		std::string valueStr = line.substr(pipe + 1);
 		// trim trailing spaces from date
@@ -49,5 +60,6 @@ int BitcoinExchange::manageFile(std::string local_database)
 		double value = std::strtod(valueStr.c_str(), NULL);
 		this->data.insert(std::pair<std::string, double>(date, value));
 	}
+	printMapContent(this->data);
 	return (1);
 }

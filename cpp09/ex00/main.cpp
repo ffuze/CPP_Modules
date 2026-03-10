@@ -10,4 +10,5 @@ int main(int argc, char *argv[])
     }
     if (!btc.manageFile(argv[1]))
         std::cout << "manageFile() function failed" << std::endl;
+    return (0);
 }
