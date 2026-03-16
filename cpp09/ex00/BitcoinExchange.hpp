@@ -2,7 +2,7 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
-# include <stdlib.h>
+# include <cstdlib>
 # include <string>
 # include <fstream>
 # include <map>
@@ -10,21 +10,26 @@
 class BitcoinExchange
 {
     private:
-        std::multimap<std::string, double> data;
+        std::map<std::string, double> rates;
+        static std::string trim(const std::string& value);
+        static bool isLeapYear(int year);
+        static bool isValidDate(const std::string& date);
+        static bool parseValue(const std::string& valueStr, double& value);
+        bool loadDatabase(const std::string& databaseFile);
+        double getRateForDate(const std::string& date) const;
+        void processInputLine(const std::string& line) const;
     public:
         BitcoinExchange();
         ~BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& copy);
         BitcoinExchange& operator=(const BitcoinExchange& obj);
-        // open file passed as argumetn in argv, then read and store every line into the map
-        int manageFile(std::string local_database);
+        int manageFile(std::string inputFile);
         enum ValueCases
         {
             ERROR_MAXINT,
             ERROR_NEGVALUE,
             ERROR_BADINPUT // needs to be extended once all the parsing details will be handled
         };
-        void printMapContent(std::multimap<std::string, double> local_map) const;
 };
 
 #endif
