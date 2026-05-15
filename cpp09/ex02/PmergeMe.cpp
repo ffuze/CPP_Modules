@@ -6,7 +6,7 @@
 /*   By: adegl-in <adegl-in@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 19:53:39 by adegl-in          #+#    #+#             */
-/*   Updated: 2026/05/15 17:52:23 by adegl-in         ###   ########.fr       */
+/*   Updated: 2026/05/15 19:12:53 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ void PmergeMe::mergeInsertSort_deque(std::deque<int>& arr)
 
 void PmergeMe::mergeInsertSort_vector(std::vector<int>& arr)
 {
+    // SAME SHIT AS BEFORE KADNASDNOA
 	if (arr.size() <= 1)
 		return;
 	std::vector<std::pair<int, int> > pairs;
@@ -210,31 +211,25 @@ void PmergeMe::mergeInsertSort_vector(std::vector<int>& arr)
 	}
     
 	std::vector<int> result;
-	// Genera la sequenza di Jacobsthal
 	std::vector<int> jacobsthal = generateJacobsthal(sortedPairs.size() - 1);
-	
-	// Aggiungi il primo minore e il primo maggiore
+    
 	if (sortedPairs.size() > 0)
 		result.push_back(sortedPairs[0].first);
 	if (sortedPairs.size() > 0)
 		result.push_back(sortedPairs[0].second);
-	
-	// Traccia quali indici sono stati inseriti
+        
 	std::vector<bool> inserted(sortedPairs.size(), false);
 	inserted[0] = true;  // Il primo è già stato inserito
 	
-	// PASSO 1: Inserisci seguendo la sequenza di Jacobsthal
 	for (size_t j = 0; j < jacobsthal.size(); j++)
 	{
 		int idx = jacobsthal[j];
 		if (idx < (int)sortedPairs.size() && !inserted[idx])
 		{
-			// Inserisci il minore
 			int nToInsert = sortedPairs[idx].first;
 			std::vector<int>::iterator it = std::lower_bound(result.begin(), result.end(), nToInsert);
 			result.insert(it, nToInsert);
-			
-			// Inserisci il maggiore
+
 			nToInsert = sortedPairs[idx].second;
 			it = std::lower_bound(result.begin(), result.end(), nToInsert);
 			result.insert(it, nToInsert);
@@ -242,8 +237,7 @@ void PmergeMe::mergeInsertSort_vector(std::vector<int>& arr)
 			inserted[idx] = true;
 		}
 	}
-	
-	// PASSO 2: Inserisci i minori rimanenti negli spazi vuoti
+
 	for (size_t i = 1; i < sortedPairs.size(); i++)
 	{
 		if (!inserted[i])
