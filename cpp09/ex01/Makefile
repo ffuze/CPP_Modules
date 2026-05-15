@@ -1,9 +1,10 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = RPN
+OBJ_DIR = .obj
 
-SRC_FILES = main.cpp BitcoinExchange.cpp
-OBJECTS = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
+SRC_FILES = main.cpp RPN.cpp
+OBJECTS = $(SRC_FILES:%.cpp=$(OBJ_DIR)/%.o)
 
 NO_COLOR = \033[0m
 RED = \033[31m
@@ -18,6 +19,10 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 	@echo "$(GREEN)Object files created!$(NO_COLOR)"
+
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(YELLOW)Cleaning...$(NO_COLOR)"
